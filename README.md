@@ -281,4 +281,4 @@ Working end-to-end for the happy path on both web and WhatsApp, assuming `.env` 
 
 ## License
 
-Not specified. Add a `LICENSE` file before publishing.
+Released under the [MIT License](./LICENSE). © 2026 Krishna Anand and Team Tensorz.
