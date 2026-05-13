@@ -247,38 +247,6 @@ GET /api/screenings   → all screenings, newest first
 GET /api/alerts       → all alerts, newest first
 ```
 
-## Project status
-
-Working end-to-end for the happy path on both web and WhatsApp, assuming `.env` is discoverable and Supabase tables exist. Known unfinished or rough edges:
-
-- No authentication on any endpoint. Anyone who can reach the backend can read every transcript.
-- `frontend/src/services/alerts.service.js`, `frontend/src/pages/HistoryScreen.jsx`, and `frontend/src/layouts/DashboardLayout.jsx` are empty placeholders.
-- `architecture.md` is empty.
-- The Analytics page references `stats.lowRiskCases`, which `GET /api/stats` does not return — the "Low" pie slice is always 0.
-- The web upload path inserts a row into `alerts` for **every** screening (regardless of risk level), while the WhatsApp path only inserts HIGH/CRITICAL. Unify before relying on alerts as a high-signal feed.
-- CORS is wide open (`app.use(cors())`) and the backend uses the Supabase anon key for inserts.
-- `ResultScreen` reads from `react-router` `location.state`; a page refresh loses the result.
-- LLM JSON schema example in the system prompt is missing its closing `}` (still parses most of the time).
-- No tests, no CI, no Dockerfile, no deploy config.
-
-## Roadmap
-
-- Add a `.env.example` and decide whether `.env` belongs at the repo root or inside `backend/`.
-- Wire the frontend to a `VITE_API_URL` env var instead of hardcoding localhost.
-- Add auth in front of `/api/screenings`, `/api/alerts`, `/api/stats`.
-- Define Supabase RLS policies and switch backend to the service role key.
-- Tighten CORS to known origins.
-- Add `lowRiskCases` to `GET /api/stats` (Analytics expects it).
-- Build out `HistoryScreen` and `/history` route.
-- Add retry / persistence on the WhatsApp pipeline so transient failures don't leave the patient without a reply.
-- Add SQL migrations (Supabase CLI or a `migrations/` folder).
-- Add a Dockerfile and a deploy target for the backend.
-
-
-## Tags
-
-`#AI` `#HealthTech` `#Hackathon` `#WitchHunt2026` `#ASHA` `#RuralHealthcare` `#VoiceAI` `#Groq` `#Supabase` `#React` `#NodeJS` `#Multilingual` `#IndiaTech` `#LLM`
-
 ## License
 
-Released under the [MIT License](./LICENSE). © 2026 Krishna Anand and Team Tensorz.
+Released under the [MIT License](./LICENSE). © 2026 Krishna Anand.
