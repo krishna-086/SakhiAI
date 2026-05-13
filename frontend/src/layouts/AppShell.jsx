@@ -4,7 +4,6 @@ import {
   Bell,
   BarChart3,
   House,
-  HeartPulse,
 } from "lucide-react";
 
 import {
@@ -63,14 +62,11 @@ function AppShell({ children }) {
           {/* BRAND */}
           <div className="flex items-center gap-4 mb-10">
 
-            <div className="w-14 h-14 rounded-3xl bg-gradient-to-br from-[#ea816c] to-[#df6b57] flex items-center justify-center shadow-lg">
-
-              <HeartPulse
-                size={28}
-                className="text-white"
-              />
-
-            </div>
+            <img
+              src="/logo1.jpeg"
+              alt="SakhiAI"
+              className="w-14 h-14 rounded-3xl object-contain bg-white shadow-lg"
+            />
 
             <div>
 

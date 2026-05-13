@@ -1,8 +1,15 @@
 # SakhiAI
 
-Voice-first AI screening assistant for ASHA workers and rural patients in India.
+Voice-first AI healthcare screening assistant for ASHA workers and rural patients across India.
 
-Patients (or ASHA workers on their behalf) speak about symptoms — over the web app or a WhatsApp voice note. SakhiAI transcribes the audio, runs it through an LLM tuned for cautious, non-diagnostic medical guidance, classifies risk, persists the result, and replies to the patient. A dashboard surfaces screenings, alerts, and trends for the worker.
+Patients describe symptoms in their own language — over the web or a WhatsApp voice note — and SakhiAI transcribes the audio, runs it through a safety-tuned LLM, classifies risk (LOW / MEDIUM / HIGH / CRITICAL), and replies in the patient's language with cautious, non-diagnostic guidance. A dashboard surfaces screenings, alerts, and trends for the worker.
+
+Built for the **WitchHunt AI Hackathon 2026 (Health & Wellbeing track)** by **Team Tensorz**.
+
+## Links
+
+- **GitHub:** https://github.com/krishna-086/SakhiAI
+- **Demo Video:** https://youtu.be/nL967R6DC-E
 
 ## Features
 
@@ -147,7 +154,7 @@ TWILIO_ACCOUNT_SID=AC...
 TWILIO_AUTH_TOKEN=...
 ```
 
-The backend loads this file via `dotenv` with no explicit path, which means it reads `<cwd>/.env`. **Start the backend from the repo root** (or move `.env` into `backend/`) — otherwise dotenv will not find it and all upstream calls will fail with auth errors.
+The backend loads this file via `dotenv` with an explicit path (`backend/src/server.js` resolves `../../.env` relative to itself), so you can run the dev server from either the repo root or from `backend/` and the env will be picked up.
 
 The frontend currently uses **no** environment variables. The API base URL is hardcoded to `http://localhost:5000` in `frontend/src/services/api.js`. Edit that file if you need to point at a different backend.
 
@@ -200,10 +207,11 @@ The outbound reply uses the same sandbox number, hardcoded in `backend/src/servi
 Open two terminals from the repo root:
 
 ```powershell
-# terminal 1 — backend (must be started from repo root so dotenv finds .env)
-node backend/src/server.js
-# or for hot reload:
-cd backend; npm run dev
+# terminal 1 — backend
+cd backend
+npm run dev          # nodemon, hot reload
+# or one-shot:
+# node src/server.js
 ```
 
 ```powershell
@@ -266,10 +274,11 @@ Working end-to-end for the happy path on both web and WhatsApp, assuming `.env` 
 - Add SQL migrations (Supabase CLI or a `migrations/` folder).
 - Add a Dockerfile and a deploy target for the backend.
 
+
+## Tags
+
+`#AI` `#HealthTech` `#Hackathon` `#WitchHunt2026` `#ASHA` `#RuralHealthcare` `#VoiceAI` `#Groq` `#Supabase` `#React` `#NodeJS` `#Multilingual` `#IndiaTech` `#LLM`
+
 ## License
 
 Not specified. Add a `LICENSE` file before publishing.
-
-## Authors
-
-Not specified. Add an `AUTHORS` file or fill in `package.json` `author` fields.

@@ -91,9 +91,11 @@ function MobileHome() {
           className="pt-6"
         >
 
-          <h1 className="text-4xl font-bold text-[#e77b67]">
-            SakhiAI
-          </h1>
+          <img
+            src="/logo1.jpeg"
+            alt="SakhiAI"
+            className="h-32 w-auto object-contain"
+          />
 
           <p className="text-neutral-500 mt-2 text-base leading-relaxed">
             AI-assisted healthcare support
